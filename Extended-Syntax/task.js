@@ -1,4 +1,5 @@
 
+"use strict"
 
 function calculateQuadraticEquation(){
     let a = +window.a.value;
@@ -11,23 +12,22 @@ function calculateQuadraticEquation(){
 }
 
 function getResult(a,b,c){
-    "use strict"
-
+    
 let diskriminant = (b ** 2) - (4 * a * c);
-
 let x;
 let x1;
 let x2;
-let d = Math.sqrt(diskriminant)
+let sqtrDiskriminant = Math.sqrt(diskriminant)
 
 if (diskriminant < 0) {
+  x = null
   console.log("Корней уравнения нет");
 } else if (diskriminant = 0) {
   x = (-b) / (2 * a);
   console.log('Корень уравнения= ' + x)
 } else {
-  x1 = (-b + d) / 2 * a;
-  x2 = (-b - d) / 2 * a;
+  x1 = (-b + sqtrDiskriminant) / 2 * a;
+  x2 = (-b - sqtrDiskriminant) / 2 * a;
   x = [x1, x2]
   console.log('Корни уравнения ' + x);
 }
@@ -45,14 +45,11 @@ function askDrink(name,dateOfBirthday){
 let now = new Date();
 let age = now.getFullYear() - dateOfBirthday.getFullYear();
 
-switch (true) {
-case age > 18: 
-  result = `Не желаете ли олд-фэшн, ${name}?`;
-  break;
-default:
- result=`Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
- break;
-}
+if (age > 18){
+  result = `Не желаете ли олд-фэшн, ${name}?`}
+else {
+  result =`Сожалею, ${name}, но я не могу вам продать алкоголь. 
+Зато могу предложить вам замечательный клюквенный компот!`}
 console.log(result);
 return result;
 }
@@ -65,19 +62,19 @@ function calculateAverageRating(){
 
 function getAverageMark(marks){
 /*Проверка количества оценок, если оценок больше 5-ти, то выводится количество оценок у ученика
-а затем длина массива обрезается до 5-ти*/
+*/
    console.log(marks.length);
    if (marks.length > 5) {
       console.log(`У ученика ${marks.length} оценок`)  
-      marks.length = 5  
-   }
-
+         }
+/*1-е 5 элементов массива копируются в новый массив*/
+newMarks = marks.splice(0, 5)
 let sum = 0;
-for(i = 0; i < marks.length; i++){
-    sum +=marks[i];
+for(i = 0; i < newMarks.length; i++){
+    sum +=newMarks[i];
     }
 
-let averageMark = sum/marks.length
+let averageMark = sum/newMarks.length
 console.log(averageMark)
 
 return averageMark
