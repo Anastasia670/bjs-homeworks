@@ -44,7 +44,7 @@ function calculateDrinkTask(){
 function askDrink(name,dateOfBirthday){
 let now = new Date();
 let age = now.getFullYear() - dateOfBirthday.getFullYear();
-
+let result
 if (age > 18){
   result = `Не желаете ли олд-фэшн, ${name}?`}
 else {
@@ -65,17 +65,18 @@ function getAverageMark(marks){
 */
    console.log(marks.length);
    if (marks.length > 5) {
-      console.log(`У ученика ${marks.length} оценок`)  
+      console.log(`У ученика ${marks.length} оценок`);  
          }
 /*1-е 5 элементов массива копируются в новый массив*/
-newMarks = marks.splice(0, 5)
+let newMarks = marks.splice(0, 5);
 let sum = 0;
-for(i = 0; i < newMarks.length; i++){
-    sum +=newMarks[i];
+let newMark;
+for(newMark of newMarks){
+    sum +=newMark;
     }
 
-let averageMark = sum/newMarks.length
-console.log(averageMark)
+let averageMark = sum/newMarks.length;
+console.log(averageMark);
 
 return averageMark
 }
