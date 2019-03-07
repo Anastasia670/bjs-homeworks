@@ -46,7 +46,7 @@ function getPersonData(secretData) {
       return { firstName: "Родриго", lastName : "Эмильо" }
   } else if (secretData.aaa === 1 && secretData.bbb === 1) {    
       return { firstName: "Эмильо", lastName: "Эмильо" }
-  } else if (firstName === 1 && lastName === 0){
+  } else if (fsecretData.aaa === 1 && secretData.bbb === 0){
       return { firstName: "Эмильо", lastName: "Pодриго" } }
   }
  
