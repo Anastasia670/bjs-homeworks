@@ -30,26 +30,31 @@ function showSolutionsMessage(a, b, c) {
   if (result.D < 0) {
     console.log("Уравнение не имеет вещественных корней");
   } else if (result.D === 0) {
-    console.log(`Уравнение имеет один корень ${result.roots} = значение_корня`);
+    console.log(`Уравнение имеет ${result.roots.length} корень, x1 = ${result.roots} `);
   } else {
-    console.log(`Уравнение имеет два корня. ${result.roots[0]} = значение_корня_1, 
-    ${result.roots[1]} = значение_корня_2`);
+    console.log(`Уравнение имеет ${result.roots.length} корня. x1 = ${result.roots[0]}, x2= 
+    ${result.roots[1]} `);
+  }
+} 
+
+//Задача 2
+//создаем функцию для проверки 1 или 0
+function secretDataNumber(n) {
+    if (n == 0) {
+      return "Pодриго"
+    } else if (n === 1) {
+      return "Эмильо"
+    }
+  }
+  //Возвращаем полученное значение.
+function getPersonData(secretData) {
+    return {
+    firstName: secretDataNumber(secretData.aaa),
+    lastName: secretDataNumber(secretData.bbb)
+
   }
 }
 
-//Задача 2
-function getPersonData(secretData) {
-
-  if (secretData.aaa === 0 && secretData.bbb === 0) { 
-      return {firstName: "Родриго", lastName: "Родриго"}
-  } else if (secretData.aaa === 0 && secretData.bbb === 1) {
-      return { firstName: "Родриго", lastName : "Эмильо" }
-  } else if (secretData.aaa === 1 && secretData.bbb === 1) {    
-      return { firstName: "Эмильо", lastName: "Эмильо" }
-  } else if (fsecretData.aaa === 1 && secretData.bbb === 0){
-      return { firstName: "Эмильо", lastName: "Pодриго" } }
-  }
- 
 console.log(getPersonData({
   aaa: 1,
   bbb: 1
@@ -70,25 +75,6 @@ console.log(getPersonData({
   bbb: 0
 }))
 
-console.log(getPersonData({
-  aaa: 1,
-  bbb: 1
-}))
-
-console.log(getPersonData({
-  aaa: 0,
-  bbb: 1
-}))
-
-console.log(getPersonData({
-  aaa: 0,
-  bbb: 1
-}))
-
-console.log(getPersonData({
-  aaa: 0,
-  bbb: 0
-}))
 //Задача 3
 
 //Передача объекта с оценками в функцию
@@ -107,23 +93,21 @@ getAverageScore({
 //создаем объект для записи предмет-средняя оценка 
 function getAverageScore(data) {
   let obj = {};
-    for (key in data) {
-    obj[key] = getAverageMarks(data[key]);
-  }
-  //создаем массив и переносим туда среднюю оценку  
-  let arr = [];
-    for (key in obj){   
-    arr.push(getAverageMarks(data[key]));   
+  let arr = [];  
+  //создаем массив и переносим туда среднюю оценку
+     for (key in data) {
+    obj[key] = getAverageMarks(data[key]);     
+    arr.push(getAverageMarks(data[key]));         
     }
   //считаем среднее по всем предметам   
   let total = 0;
     for (let i = 0; i < arr.length; i++) {
     total += arr[i];
   }
- //добавляем среднее по всем предметам о объект
+ //добавляем среднее по всем предметам в объект и возвращием оъект
   let average = total/arr.length
   obj.average = total/arr.length
-  console.log(obj)
+  return obj
  }
 //функция подсчета среднего балла по предмету
 function getAverageMarks(arrMarks) {
