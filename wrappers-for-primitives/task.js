@@ -22,7 +22,7 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
    //считаем ежемесячный платеж и округляем до 2-х десятых
   let monthPay = (S * (P + P / (((1 + P) ** n) - 1))).toFixed(2)
   //считаем сумму по кредиту 
-  let totalAmount = (monthPay * n)
+  let totalAmount = (monthPay * n).toFixed(2)
  //проверяем корректность данных с помощью function checkData
 checkData ({
     'Процент': percent,
