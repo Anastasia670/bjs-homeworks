@@ -1,3 +1,4 @@
+'use strict'
 function initCheckBirthday() {
     const birthday = document.getElementById('birthday').value;
 
@@ -6,11 +7,24 @@ function initCheckBirthday() {
     document.getElementById('disclaimer').innerHTML = result;   
 }
 
-function checkBirthday(birthday) {
-    // код для задачи №1 писать здесь
-}
 
-function initPrintAnimalSound() {
+
+function checkBirthday(birthday) {
+  
+  let now = Date.parse(new Date())  
+  birthday = Date.parse(birthday)
+
+    const diff = now - birthday
+
+    const age = diff / (365.25 * 24 * 60 * 60 * 1000)  
+
+       return age >= 18
+
+}
+    
+
+
+function initPrintAnimalSound() {    
     const animal = {
         sound: 'grrrr',
     };
@@ -21,8 +35,11 @@ function initPrintAnimalSound() {
 }
 
 function getAnimalSound(animal) {
-    // код для задачи №2 писать здесь
-}
+
+   const sound = animal.sound    
+   return (animal = undefined)? null: sound
+  }
+
 
 function initCalculateStatement() {
     for (let idx = 0; idx < 3; idx++) {
@@ -35,5 +52,13 @@ function initCalculateStatement() {
 }
 
 function getAverageMark(marks) {
-    // код для задачи №3 писать здесь
+    let sum = 0;
+       for (let i = 0; i < marks.length; i++) {
+       sum += parseInt(marks[i])
+    }
+
+    const average = sum / marks.length;
+    const roundedAverage = Math.round(average)
+    return roundedAverage
 }
+
