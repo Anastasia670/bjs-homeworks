@@ -11,6 +11,17 @@ function calculateMortgage() {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, date) {
+	function checkData (data){
+for (let key in data) {         
+   if (isNaN(parseInt(data[key]))) {
+      console.log(`Параметр ${key} содержит неправильное значение ${data[key]} `)}
+  }
+ }
+ checkData ({
+    persent: percent,
+    contribution: contribution,
+    amount: amount
+  })
   //задаем сегодняшнюю дату
   let now = new Date();
   //считаем количество месяцев от сегодншней даты до даты аргумента
@@ -24,21 +35,10 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   //считаем сумму по кредиту 
   let totalAmount = (monthPay * n).toFixed(2)
  //проверяем корректность данных с помощью function checkData
-checkData ({
-    persent: percent,
-    contribution: contribution,
-    amount: amount
-  })
+
   return totalAmount
  }
- //проверка корректности данных
-function checkData (data){
-for (let key in data) {         
-   if (isNaN(parseInt(data[key]))) {
-      console.log(`Параметр ${key} содержит неправильное значение ${data[key]} `)}
-  }
- }
- 
+
 
 function sayHello() {
     let name = window.personName.value;

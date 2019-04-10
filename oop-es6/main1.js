@@ -33,14 +33,10 @@ if (this.durability >= this.firstDurability * 0.3) {
    }
 
   isBroken(){
-if (this.durability > 0) {
-      return false
-  }  
-  else {
-    return true
-    }
+ return this.durability === 0
   }
-}
+ }
+
 
 const arm = new Weapon ('Рука', 1, Infinity, 1)
 const bow = new Weapon ('Лук', 10, 200, 3)
@@ -54,7 +50,7 @@ sword.takeDamage(50);
 console.log(sword.durability);  
 arm.takeDamage(10);
 console.log(arm.durability); 
-bow.takeDamage(119);
+bow.takeDamage(229);
 console.log(bow.firstDurability); 
 console.log(bow.getDamage())
 console.log(arm.isBroken())

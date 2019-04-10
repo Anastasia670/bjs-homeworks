@@ -12,13 +12,13 @@ addGrade( grade, subject ){
    if (this.marks[subject] === undefined){
    this.marks[subject] = [];
         };  
-  if (grade > 5 || grade < 1 || (typeof grade !== 'number') || isNaN (parseInt(grade)))  {
+  if (grade > 5 || grade < 1 || isNaN (parseInt(grade)))  {
     console.log (`Вы пытались поставить оценку ${grade} по предмету ${subject} Допустимый предел: 0-5`)
   }
   else{
     this.marks[subject].push(grade);
           }
-    return this.marks[subject];
+    return this.marks[subject].length;
  }
 
  getAverageBySubject( subject ){
@@ -50,7 +50,7 @@ for(let value in this.marks) {
 const log = new StudentLog( 'Игорь Иванов' );
 console.log( log.getName() );
 console.log( log.addGrade( 5, 'algebra'));
-console.log( log.addGrade( 4, 'algebra'));
+console.log( log.addGrade( 3, 'algebra'));
 console.log( log.addGrade( 4, 'english'))
 console.log( log.getAverageBySubject( 'algebra' ));
 console.log (log.getTotalAverage())

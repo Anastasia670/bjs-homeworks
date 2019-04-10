@@ -58,7 +58,7 @@ class Arm extends Weapon {
 
 class Bow extends Weapon {
   constructor(){
-    super ('Лук',10, 200, ) 
+    super ('Лук',10, 200, 3 ) 
         }
 }
 
@@ -75,8 +75,8 @@ class Staff extends Weapon{
 }
 
 class LongBow extends Bow {
-  constructor(name, attack, durability, range) {
-    super(durability);
+  constructor() {
+    super();
     this.name = 'Длинный лук';
     this.attack = 15;
     this.range = 4;
@@ -84,8 +84,8 @@ class LongBow extends Bow {
 }
 
 class Axe extends Sword {
-  constructor(name, attack, durability, range) {
-    super(range);
+  constructor() {
+    super();
     this.name = 'Секира';
     this.durability = 800;
     this.attack = 27;
@@ -94,8 +94,8 @@ class Axe extends Sword {
 }
 
 class StormStaff extends Staff {
-  constructor(name, attack, durability, range) {
-    super(durability);
+  constructor() {
+    super();
     this.name = 'Посох Бури';
     this.attack = 10;
     this.range = 3;
@@ -112,10 +112,10 @@ const axe = new Axe()
 const stormStaff = new StormStaff () 
 
 stormStaff.takeDamage(50);
-console.log(stormStaff.durability);  
+console.log(axe.name);  
 arm.takeDamage(10);
 console.log(arm.durability); 
 bow.takeDamage(119);
-console.log(bow.firstDurability); 
+console.log(longBow.firstDurability); 
 console.log(bow.getDamage())
 console.log(arm.isBroken())
